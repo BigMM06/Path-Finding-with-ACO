@@ -1,16 +1,19 @@
 import numpy as np
 
 
-class environment:
+class problem:
 
-    def __init__(self, h_counts: int, v_counts: int):
-        self.h_counts = h_counts
-        self.v_counts = v_counts
-        self.grid = np.zeros((v_counts, h_counts), int)
+    def __init__(self, column: int, row: int, start: tuple, dest: tuple):
+        self.column = column
+        self.row = row
+        self.grid = np.zeros((row, column), int)
+        self.start = start
+        self.dest = dest
 
     def printEnv(self):
         print(self.grid)
 
     def setBlocks(self, blocksList):
         for coordinats in blocksList:
-            self.grid[coordinats[0]][coordinats[1]] = 1
+            if coordinats != self.start and coordinats != self.dest:
+                self.grid[coordinats[0]][coordinats[1]] = 1
