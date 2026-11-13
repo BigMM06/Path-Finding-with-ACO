@@ -4,22 +4,24 @@ import Problem
 class Ant:
     def __init__(self, problem: Problem.Problem):
         self.problem = problem
-        self.pose = self.problem.start
-        self.moveCost = 0
+        self.position = self.problem.start
+        self.move_cost = 0
         self.visited = [self.problem.start]
         self.path = []
 
-    def move(self, move: tuple) -> None:
-        if move in self.problem.valid_neighbors(self.pose):
-            self.pose = (self.pose[0] + move[0], self.pose[1] + move[1])
+    def move(self, move: tuple) -> bool:
+        coordinate = (self.position[0] + move[0], self.position[1] + move[1])
+        if coordinate in self.problem.valid_neighbors(self.position):
+            self.position = coordinate
             self.path.append(move)
-            self.moveCost += 1
-            self.visited.append(self.pose)
+            self.move_cost += 1
+            self.visited.append(self.position)
+            return True
         else:
-            print("Not valid move")
+            return False
 
-    def current_pose(self) -> tuple:
-        return self.pose
+    def get_current_position(self) -> tuple:
+        return self.position
 
-    def is_reach_food(self) -> bool:
-        return self.pose == self.problem.dest
+    def reached_dest(self) -> bool:
+        return self.position == self.problem.dest
