@@ -41,3 +41,6 @@ class Problem:
             ):
                 neighborsList.append(coordinate)
         return neighborsList
+
+    def manhattan_distance(self, coordinate: tuple) -> int:
+        return abs(self.dest[0] - coordinate[0]) + abs(self.dest[1] - coordinate[1])
