@@ -20,13 +20,13 @@ class Problem:
         return 0 <= r < self.row and 0 <= c < self.column
 
     def set_blocks(self, blocks_list):
-        for coordinats in blocks_list:
+        for coordinates in blocks_list:
             if (
-                self.is_inside(coordinats)
-                and coordinats != self.start
-                and coordinats != self.dest
+                self.is_inside(coordinates)
+                and coordinates != self.start
+                and coordinates != self.dest
             ):
-                self.grid[coordinats[0]][coordinats[1]] = 1
+                self.grid[coordinates[0]][coordinates[1]] = 1
 
     def valid_neighbors(self, pose: tuple) -> list:
         neighborsList = []
