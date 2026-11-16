@@ -61,6 +61,7 @@ class ACO:
         if self.problem.start == self.problem.dest:
             return [self.problem.start], [], 0
         for iteration in range(self.iterations):
+            print(f"Iteration {iteration}")
             all_paths = []
             all_moves = []
             all_distances = []
