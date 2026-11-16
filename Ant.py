@@ -10,6 +10,8 @@ class Ant:
         self.path = []
 
     def move(self, move: tuple) -> bool:
+        if move not in Problem.VALID_MOVES:
+            return False
         coordinate = (self.position[0] + move[0], self.position[1] + move[1])
         if coordinate in self.problem.valid_neighbors(self.position):
             self.position = coordinate
