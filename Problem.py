@@ -6,6 +6,10 @@ VALID_MOVES = [(-1, 0), (1, 0), (0, -1), (0, 1)]
 class Problem:
 
     def __init__(self, row: int, column: int, start: tuple, dest: tuple):
+        if not 0 <= start[0] < row and not 0 <= start[1] < column:
+            raise ValueError("Start coordination out of range!")
+        if not 0 <= dest[0] < row and not 0 <= dest[1] < column:
+            raise ValueError("Destination coordination out of range!")
         self.row = row
         self.column = column
         self.grid = np.zeros((row, column), int)
