@@ -15,7 +15,9 @@ for block in range(blocks_count):
         tuple(int(x) for x in input(f"Enter block {block} coordination: ").split())
     )
 problem.set_blocks(blocks_list)
-algorithm = ACO.ACO(problem, 50, 10, 1, 2, 0.5, 100)
+algorithm = ACO.ACO(
+    problem, 50, 10, 1, 2, 0.5, 100
+)  # HyperParameters should change according to the problem
 
 best_path, best_moveset, best_cost = algorithm.run()
 
