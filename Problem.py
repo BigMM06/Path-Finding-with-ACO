@@ -5,7 +5,7 @@ VALID_MOVES = [(-1, 0), (1, 0), (0, -1), (0, 1)]
 
 class Problem:
 
-    def __init__(self, column: int, row: int, start: tuple, dest: tuple):
+    def __init__(self, row: int, column: int, start: tuple, dest: tuple):
         self.row = row
         self.column = column
         self.grid = np.zeros((row, column), int)
