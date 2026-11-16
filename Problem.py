@@ -12,8 +12,8 @@ class Problem:
         self.start = start
         self.dest = dest
 
-    def print_env(self):
-        print(self.grid)
+    def get_env(self):
+        return self.grid
 
     def is_inside(self, pose: tuple) -> bool:
         r, c = pose
