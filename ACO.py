@@ -110,5 +110,6 @@ class ACO:
                         self.best_cost = ant.move_cost
                         self.best_path = ant.visited.copy()
                         self.best_moveset = ant.path.copy()
+                        print("A better path founded!")
             self.update_pheromone(all_paths, all_moves, all_distances)
         return self.best_path, self.best_moveset, self.best_cost
