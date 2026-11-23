@@ -47,6 +47,18 @@ class ACO:
                 m = move[i]
                 index = Problem.VALID_MOVES.index(m)
                 self.pheromones[path[i][0]][path[i][1]][index] += self.Q / distance
+        for row in range(self.problem.row):
+            for column in range(self.problem.column):
+                for move in range(4):
+                    coordinate = (
+                        self.problem.grid[row][column] + Problem.VALID_MOVES[move][0],
+                        self.problem.grid[row][column] + Problem.VALID_MOVES[move][1],
+                    )
+                    if (
+                        self.problem.grid[coordinate[0]][coordinate[1]] == 0
+                        and self.pheromones[row][column][move] <= 0
+                    ):
+                        self.pheromones[row][column][move] = 0.01
 
     def calculate_probability_numerator(
         self, ant: Ant.Ant, coordinate: tuple, move_index: int
