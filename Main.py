@@ -1,7 +1,6 @@
-import matplotlib.pyplot as plt
-
 import ACO
 import Problem
+from visualization import show_visualization
 
 row = int(input("Enter row count: "))
 column = int(input("Enter column count: "))
@@ -27,3 +26,12 @@ else:
     print("Best path:", best_path)
     print("Best moves:", best_moveset)
     print("Best cost:", best_cost)
+    
+if best_path == None:
+    print("No path found!")
+else:
+    print("Best path:", best_path)
+    print("Best moves:", best_moveset)
+    print("Best cost:", best_cost)
+
+show_visualization(problem, algorithm.history)
